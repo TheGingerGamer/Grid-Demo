@@ -38,8 +38,8 @@ public class OutlineSelection : MonoBehaviour
                 {
                     Outline outline = highlight.gameObject.AddComponent<Outline>();
                     outline.enabled = true;
-                    highlight.gameObject.GetComponent<Outline>().OutlineColor = Color.yellow;
-                    highlight.gameObject.GetComponent<Outline>().OutlineWidth = 7.0f;
+                    highlight.gameObject.GetComponent<Outline>().OutlineColor = Color.white;
+                    highlight.gameObject.GetComponent<Outline>().OutlineWidth = 5.0f;
                     
                 }
             } 
@@ -53,8 +53,8 @@ public class OutlineSelection : MonoBehaviour
                 {
                     Outline outline = highlight.gameObject.AddComponent<Outline>();
                     outline.enabled = true;
-                    highlight.gameObject.GetComponent<Outline>().OutlineColor = Color.blue;
-                    highlight.gameObject.GetComponent<Outline>().OutlineWidth = 7.0f;
+                    highlight.gameObject.GetComponent<Outline>().OutlineColor = Color.red;
+                    highlight.gameObject.GetComponent<Outline>().OutlineWidth = 5.0f;
                 }
             } 
             else
@@ -72,7 +72,7 @@ public class OutlineSelection : MonoBehaviour
                     selection.gameObject.GetComponent<Outline>().enabled = true;
                 }
                 selection = raycastHit.transform;
-                if(selection.CompareTag("Player") && !playerTurn)
+                if(selection.CompareTag("Player"))
                 {
                     playerTurn = true;
                     selection.gameObject.GetComponent<Outline>().enabled = true;
@@ -81,16 +81,11 @@ public class OutlineSelection : MonoBehaviour
                 else
                 {
                     playerTurn = false;
-                }
-            }
-            else
-            {
-                if(selection)
-                {
                     selection.gameObject.GetComponent<Outline>().enabled = false;
                     selection = null;
                 }
             }
+            
         }
     }
 }
